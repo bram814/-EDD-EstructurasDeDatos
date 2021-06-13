@@ -48,19 +48,21 @@ class ListaDoble{
                     this.set_ultimo(null)
                 }
 
-            }else if (this.get_ultimo.get_dato() == dato){  //Condicion cuando hay 2 nodos -> eliminando al ultimo
+            }else if (this.get_ultimo().get_dato() == dato){  //Condicion cuando hay 2 nodos -> eliminando al ultimo
 
                 if (this.get_ultimo().get_anterior() != null){
 
                     let temp = this.get_ultimo().get_anterior()
-                    this.get_primero().get_siguiente().set_anterior(null)
-                    this.get_primero().set_siguiente(null)
-                    this.set_primero(temp);
+                    this.get_ultimo().get_anterior().set_siguiente(null)
+                    this.get_ultimo().set_anterior(null)
+                    this.set_ultimo(temp);
 
                     return console.log("Delete!");
                 }else{
                     this.set_primero(null)
                     this.set_ultimo(null)
+                    
+                    return console.log("Delete!");
                 }
 
 
@@ -70,14 +72,16 @@ class ListaDoble{
                 do {
 
                     if (nodo_actual.get_dato() == dato){
-                        if (nodo_actual.get_dato() == this.get_ultimo().get_dato()){
-                            anterior.set_siguiente(null);
-                            this.set_ultimo(anterior);
-                            return console.log("Delete!");
-                        }else {
-                            anterior.set_siguiente(nodo_actual.get_siguiente());
-                            return console.log("Delete!");
-                        }
+                        
+                        let siguiente = nodo_actual.get_siguiente()
+
+                        nodo_actual.set_siguiente(null)
+                        nodo_actual.set_anterior(null)
+                        anterior.set_siguiente(siguiente)
+                        siguiente.set_anterior(anterior)
+
+                        return console.log("Delete!");
+                     
                     }
                     nodo_actual = nodo_actual.get_siguiente();
                     anterior = anterior.get_siguiente();
