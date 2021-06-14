@@ -53,32 +53,37 @@
 
 
 // ----------------------------------------------------------- LISTA DOBLE -----------------------------------------------------------
-console.log("Lista Doble")
-const ListaDoble = require('./Modelo/Lineales/ListaDoble/ListaDoble');
-var listaS = new ListaDoble();
+// console.log("Lista Doble")
+// const ListaDoble = require('./Modelo/Lineales/ListaDoble/ListaDoble');
+// var listaS = new ListaDoble();
 
-listaS.insertar(1);
-listaS.insertar(2);
-listaS.insertar(3);
-listaS.insertar(4);
-listaS.insertar(5);
-listaS.insertar(6);
-listaS.print()
+// listaS.insertar(1);
+// listaS.insertar(2);
+// listaS.insertar(3);
+// listaS.insertar(4);
+// listaS.insertar(5);
+// listaS.insertar(6);
+// listaS.print()
 // console.log("SEARCH")
 // listaS.search(7)
 // listaS.search(6)
-console.log("ELIMINAR")
-listaS.eliminar(3)
-listaS.print()
-console.log("comprobacion")
+// console.log("ELIMINAR")
+// listaS.eliminar(3)
+// listaS.print()
+// console.log("comprobacion")
 // if(listaS.vacia()== false){
 //     console.log(listaS.get_primero().get_siguiente())
 //     console.log(listaS.get_primero().get_anterior())
 //     console.log(listaS.get_ultimo().get_anterior())
 //     console.log(listaS.get_ultimo().get_siguiente())
 // }
+// console.log("INSERTAR -> INICIO Y FIN")
+// listaS.insertar_inicio(1000)
+// listaS.insertar_ultimo(2000)
+// listaS.print()
 
-// ----------------------------- LISTA CIRCULAR -----------------------------
+
+// ----------------------------------------------------------- LISTA CIRCULAR -----------------------------------------------------------
 // console.log("Lista Circular")
 // const ListaCircular = require('./Modelo/Lineales/ListaCircular/ListaCircular');
 // var listaS = new ListaCircular();
@@ -90,9 +95,43 @@ console.log("comprobacion")
 // listaS.insertar(5);
 // listaS.insertar(6);
 // listaS.print()
+// console.log("ELIMINAR")
+// listaS.eliminar(4)
+// listaS.eliminar(4)
+// listaS.eliminar(5)
+// listaS.print()
+// console.log("INSERTAR -> INICIO Y FIN")
+// listaS.insertar_inicio(1000)
+// listaS.insertar_ultimo(2000)
+// listaS.print()
+// console.log("Buscar")
+// listaS.search(1000)
+// listaS.search(200)
+// console.log("Actualizar")
+// listaS.print()
+// listaS.update(1000,200)
+// listaS.print()
 
 
-
-
-
-
+// ----------------------------------------------------------- PILA -----------------------------------------------------------
+// console.log("Pila")
+// const Pila = require('./Modelo/Lineales/Pila/Pila');
+// var listaS = new Pila();
+// listaS.push(1)
+// listaS.push(2)
+// listaS.push(3)
+// listaS.push(4)
+// listaS.push(5)
+// listaS.push(6)
+// listaS.print()
+// console.log("Eliminando -> POP")
+// listaS.pop()
+// listaS.print()
+// console.log("UPDATE")
+// listaS.update(10,2000)
+// listaS.print()
+// listaS.update(1,1000)
+// listaS.print()
+// console.log("SEARCH")
+// listaS.search(1)
+// listaS.search(1000)

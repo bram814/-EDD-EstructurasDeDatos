@@ -24,9 +24,20 @@ class ListaDoble{
 
     insertar_inicio(dato){
         let nodo_nuevo = new Nodo(dato)
-       
+
+        nodo_nuevo.set_siguiente(this.get_primero())
+        this.get_primero().set_anterior(nodo_nuevo)
+        this.set_primero(nodo_nuevo)
     }
-    
+
+    insertar_ultimo(dato){
+        let nodo_nuevo = new Nodo(dato)
+        
+        this.get_ultimo().set_siguiente(nodo_nuevo)
+        nodo_nuevo.set_anterior(this.get_ultimo())
+        this.set_ultimo(nodo_nuevo)
+
+    }
 
     eliminar(dato){
 
