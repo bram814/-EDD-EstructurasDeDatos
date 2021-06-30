@@ -59,6 +59,73 @@ class ListaHorizontal {
         }
     }
 
+
+
+    delete = (x) => {
+
+        if(this.vacia()==true){
+            console.log("Empty!")
+
+        }else{
+
+            if(this.getPrimero().getX() == x){ // Eliminar al Inicio
+                if(this.getPrimero().getDerecha() != null){
+
+                    let temp = this.getPrimero().getDerecha();
+                    this.getPrimero().setDerecha(null);
+                    temp.setIzquierda(null);
+                    this.setPrimero(temp);
+
+                }else{
+
+                    this.setPrimero(null);
+                    this.setUltimo(null);
+                }
+            }else if (this.getUltimo().getX() == x){ // Eliminar en Final
+
+                if(this.getUltimo().getIzquierda() != null){
+
+                    let temp = this.getUltimo().getIzquierda();
+                    this.getUltimo().setIzquierda(null);
+                    temp.setDerecha(null);
+                    this.setUltimo(temp);
+                }else{
+
+                    this.setPrimero(null);
+                    this.setUltimo(null);
+                }
+                
+            }else{  // Eliminar en Medio
+                
+                let nodo_actual = this.getPrimero().getDerecha();
+                let anterior = this.getPrimero();
+                do {
+
+                    if (nodo_actual.getX() == x){
+                        
+                        let siguiente = nodo_actual.getDerecha();
+
+                        nodo_actual.setDerecha(null)
+                        nodo_actual.setIzquierda(null)
+                        anterior.setDerecha(siguiente)
+                        siguiente.setIzquierda(anterior)
+
+                        return console.log("Delete!");
+                     
+                    }
+                    nodo_actual = nodo_actual.getDerecha();
+                    anterior = anterior.getDerecha();
+
+                } while (nodo_actual != null);
+
+            }
+        }
+
+    }
+
+
+
+
     vacia = () => {
         if (this.getPrimero() == null){
             return true;

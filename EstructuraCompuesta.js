@@ -24,9 +24,24 @@ console.log(matrizDispersa.getFila().getPrimero().getFila().getPrimero().getDere
 console.log(matrizDispersa.getFila().getPrimero().getFila().getPrimero().getDerecha().getAbajo().getDerecha().getAbajo().getIzquierda().getArriba().getDato()) // 2,2
 console.log(matrizDispersa.getFila().getPrimero().getFila().getPrimero().getDerecha().getAbajo().getDerecha().getAbajo().getIzquierda().getArriba().getArriba().getDato()) //1,2
 
-console.log("\t\tSEARCH")
-matrizDispersa.search("23Dato")
-console.log("\t\tUPDATE")
-matrizDispersa.update("23Dato","cambio")
-matrizDispersa.search("23Dato")
-matrizDispersa.search("cambio")
+// console.log("\t\tSEARCH")
+// matrizDispersa.search(2, 3, "23Dato")
+// console.log("\t\tUPDATE")
+// matrizDispersa.update(2, 3, "23Dato","cambio")
+// matrizDispersa.search(2, 3, "23Dato")
+// matrizDispersa.search(2, 3, "cambio")
+console.log("\t\tDELETE");
+for(var x=1;x<4;x++){
+	for(var y=1;y<4;y++){
+		let dato = String(x)+String(y)+"Dato"
+
+		console.log("-----------------------------------")
+		matrizDispersa.delete(x,y,dato)
+		
+	}
+}
+
+matrizDispersa.print()
+console.log("__________________________")
+matrizDispersa.insertar(10,10,"1010dato")
+matrizDispersa.print()

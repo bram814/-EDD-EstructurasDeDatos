@@ -36,95 +36,110 @@ class MatrizOrtogonal {
 
         var nodo_cabecera = this.getFila().getPrimero();
         var nodo_actual = null;
-        do{
-           
-            console.log(nodo_cabecera.getY());
-            nodo_actual = nodo_cabecera.getFila().getPrimero();
+        if(nodo_cabecera != null){
             do{
-                console.log("dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
-                nodo_actual = nodo_actual.getDerecha();
-            }while(nodo_actual != null);   
+                console.log(nodo_cabecera.getY());
+                nodo_actual = nodo_cabecera.getFila().getPrimero();
+                if(nodo_actual != null){
+                    do{
+                        console.log("dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
+                        nodo_actual = nodo_actual.getDerecha();
+                    }while(nodo_actual != null);   
+                }   
+                nodo_cabecera = nodo_cabecera.getSiguiente();
+            }while(nodo_cabecera != null);
+        }
             
-            nodo_cabecera = nodo_cabecera.getSiguiente();
-            
-        }while(nodo_cabecera != null);
 
-
-
+        console.log("-")
         nodo_cabecera = this.getColumna().getPrimero();
         nodo_actual = null;
-
-        do{
+        if(nodo_cabecera != null){
+             do{
+                console.log(nodo_cabecera.getX());
+                let nodo_actual = nodo_cabecera.getColumna().getPrimero();
+                if(nodo_actual != null){
+                     do{
+                        console.log("dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
+                        nodo_actual = nodo_actual.getAbajo();
+                    }while(nodo_actual != null);   
+                }
+                nodo_cabecera = nodo_cabecera.getSiguiente();
+            }while(nodo_cabecera != null);
+        }
            
-            console.log(nodo_cabecera.getX());
-            let nodo_actual = nodo_cabecera.getColumna().getPrimero();
-            do{
-                console.log("dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
-                nodo_actual = nodo_actual.getAbajo();
-            }while(nodo_actual != null);   
-            
-            nodo_cabecera = nodo_cabecera.getSiguiente();
-            
-        }while(nodo_cabecera != null);
-
-
-
-        
     }
 
 
-    search = (dato) => {
+    search = (x, y, dato) => {
 
         var nodo_cabecera = this.getFila().getPrimero();
         var nodo_actual = null;
-        do{
-           
-            nodo_actual = nodo_cabecera.getFila().getPrimero();
+        if (nodo_cabecera != null){
             do{
-                if (nodo_actual.getDato() == dato){
-                    console.log("dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
-                    return nodo_actual    
+               
+                nodo_actual = nodo_cabecera.getFila().getPrimero();
+                if (nodo_actual != null){
+                    do{
+                    if (nodo_actual.getDato() == dato && nodo_actual.getX() == x && nodo_actual.getY() == y){
+                        console.log("dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
+                        return nodo_actual    
+                    }
+                    nodo_actual = nodo_actual.getDerecha();
+                }while(nodo_actual != null);   
                 }
-                nodo_actual = nodo_actual.getDerecha();
-            }while(nodo_actual != null);   
-            
-            nodo_cabecera = nodo_cabecera.getSiguiente();
-            
-        }while(nodo_cabecera != null);
-
+                
+                
+                nodo_cabecera = nodo_cabecera.getSiguiente();
+                
+            }while(nodo_cabecera != null);
+        }
         console.log("Data not Found")
         return null
     }
 
 
-    update = (dato, cambio) => {
-
+    update = (x, y, dato, cambio) => {
 
 
         var nodo_cabecera = this.getFila().getPrimero();
         var nodo_actual = null;
-        do{
-           
-            nodo_actual = nodo_cabecera.getFila().getPrimero();
+        if(nodo_cabecera != null){
             do{
-                if (nodo_actual.getDato() == dato){
-                    nodo_actual.setDato(cambio)
-                    console.log("UPDATE -> dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
-                    return nodo_actual    
+                nodo_actual = nodo_cabecera.getFila().getPrimero();
+                if (nodo_actual != null){
+                    do{
+                        if (nodo_actual.getDato() == dato && nodo_actual.getX() == x && nodo_actual.getY() == y){
+                            nodo_actual.setDato(cambio)
+                            console.log("UPDATE -> dato: " + nodo_actual.getDato() + " posicion (x,y): " + nodo_actual.getX()  +  "," + nodo_actual.getY());
+                            return nodo_actual    
+                        }
+                        nodo_actual = nodo_actual.getDerecha();
+                    }while(nodo_actual != null);   
                 }
-                nodo_actual = nodo_actual.getDerecha();
-            }while(nodo_actual != null);   
-            
-            nodo_cabecera = nodo_cabecera.getSiguiente();
-            
-        }while(nodo_cabecera != null);
-
+                nodo_cabecera = nodo_cabecera.getSiguiente();
+                
+            }while(nodo_cabecera != null);
+        }
         console.log("Data not Found")
         return null
 
 
     }
 
+    delete = (x, y, dato) => {
+
+        if(this.search(x, y, dato) != null){
+            this.getColumna().busqueda(x).getColumna().delete(y)
+            this.getFila().busqueda(y).getFila().delete(x);
+        }
+        if(this.getColumna().busqueda(x).getColumna().getPrimero() == null){ 
+            this.getColumna().delete(x); 
+        }
+        if (this.getFila().busqueda(y).getFila().getPrimero()==null){ 
+            this.getFila().delete(y); 
+        }
+    }
 
     getColumna = () =>{ return this.columnas; }
     setColumna = (columna) => { this.columnas = columna; }
@@ -132,7 +147,6 @@ class MatrizOrtogonal {
     setFila = (fila) => { this.filas = fila; }
 
 }
-
 
 // export default MatrizOrtogonal;
 module.exports = MatrizOrtogonal;

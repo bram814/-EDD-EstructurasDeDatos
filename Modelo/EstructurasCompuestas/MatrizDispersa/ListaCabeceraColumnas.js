@@ -48,6 +48,69 @@ class ListaCabeceraColumnas{
         this.setUltimo(nodoNuevo);
     }
 
+
+    delete = (x) => {
+
+        if(this.vacia()==true){
+            console.log("Empty!")
+
+        }else{
+
+            if(this.getPrimero().getX() == x){ // Eliminar al Inicio
+                if(this.getPrimero().getSiguiente() != null){
+
+                    let temp = this.getPrimero().getSiguiente();
+                    this.getPrimero().setSiguiente(null);
+                    temp.setAnterior(null);
+                    this.setPrimero(temp);
+
+                }else{
+
+                    this.setPrimero(null);
+                    this.setUltimo(null);
+                }
+            }else if (this.getUltimo().getX() == x){ // Eliminar en Final
+
+                if(this.getUltimo().getAnterior() != null){
+
+                    let temp = this.getUltimo().getAnterior();
+                    this.getUltimo().setAnterior(null);
+                    temp.setSiguiente(null);
+                    this.setUltimo(temp);
+                }else{
+
+                    this.setPrimero(null);
+                    this.setUltimo(null);
+                }
+                
+            }else{  // Eliminar en Medio
+                
+                let nodo_actual = this.getPrimero()
+                do {
+                    console.log(this.getPrimero().getX())
+                    if (nodo_actual.getX() == x){
+                        
+                        let anterior = nodo_actual.getAnterior()
+                        let siguiente = nodo_actual.getSiguiente()
+                        
+                        nodo_actual.setSiguiente(null)
+                        nodo_actual.setAnterior(null)
+                        anterior.setSiguiente(siguiente)
+                        siguiente.setAnterior(anterior)
+
+                        return console.log("Delete!");
+                     
+                    }
+                    nodo_actual = nodo_actual.getSiguiente();
+
+                } while (nodo_actual != null);
+
+            }
+        }
+
+    }
+
+
     print = () => {
         if(this.vacia()==false) {
             let tmp = this.getPrimero();
