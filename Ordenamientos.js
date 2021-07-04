@@ -82,7 +82,8 @@ while(i<orSeleccion.array.length){
 console.log("\t\t\t"+"METODO RAPIDO")
 const Rapido = require('./Modelo/Ordenamientos/Rapido.js');
 var orRapido = new Rapido();
-var datoRapido = [5,8,2,6,9,3,1,4,0,7];
+// var datoRapido = [5,8,2,6,9,3,1,4,0,7];
+var datoRapido = [17, 10, 12, 7, 11];
 
 var i = 0;
 while(i < datoRapido.length){

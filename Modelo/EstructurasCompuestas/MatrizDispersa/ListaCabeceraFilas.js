@@ -49,14 +49,14 @@ class ListaCabeceraFilas {
 
 
 
-    delete = (Y) => {
+    delete = (y) => {
 
         if(this.vacia()==true){
             console.log("Empty!")
 
         }else{
 
-            if(this.getPrimero().getY() == Y){ // Eliminar al Inicio
+            if(this.getPrimero().getY() == y){ // Eliminar al Inicio
                 if(this.getPrimero().getSiguiente() != null){
 
                     let temp = this.getPrimero().getSiguiente();
@@ -69,7 +69,7 @@ class ListaCabeceraFilas {
                     this.setPrimero(null);
                     this.setUltimo(null);
                 }
-            }else if (this.getUltimo().getY() == Y){ // Eliminar en Final
+            }else if (this.getUltimo().getY() == y){ // Eliminar en Final
 
                 if(this.getUltimo().getAnterior() != null){
 
@@ -88,7 +88,7 @@ class ListaCabeceraFilas {
                 let nodo_actual = this.getPrimero()
                 do {
                     console.log(this.getPrimero().getY())
-                    if (nodo_actual.getY() == Y){
+                    if (nodo_actual.getY() == y){
                         
                         let anterior = nodo_actual.getAnterior()
                         let siguiente = nodo_actual.getSiguiente()

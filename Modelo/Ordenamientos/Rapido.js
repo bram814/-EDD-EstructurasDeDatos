@@ -28,7 +28,7 @@ class Rapido{
 	        }
 	        
 	        if (i <= j){	  // Si i es menor o igual que j significa que los índices se han cruzado.
-	            
+	            console.log("entro")
 	            var temp = this.array[j]; 			// Creamos una variable temporal para guardar el valor de this.array[j].
 	            this.array[j] = this.array[i]; 		// Intercambiamos los valores de this.array[j] y this.array[i].
 	            this.array[i] = temp;				// Se asigna el temporal a this.arra[i].

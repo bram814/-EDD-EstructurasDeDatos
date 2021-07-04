@@ -1,13 +1,7 @@
-function hammingEncode(input) {
-	// if (typeof input !== 'string' || input.match(/[^10]/)) {
-	// 	console.error('hamming-code error: input should be binary string, for example "101010"');
-	// }else{
-
-	// 	console.log("pero bueno si es un string")
-
-	// }
-	console.log(input)
+const Hamming = require('./Modelo/Codificacion/Hamming/Hamming.js');
+var hamming = new Hamming();
 
 
 
-// hammingEncode("hola")
+hamming.encode("0110101");
+// hamming.encode("0110");
