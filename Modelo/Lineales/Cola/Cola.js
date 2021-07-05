@@ -44,9 +44,9 @@ class EstructuraCola{
 				nodo = nodo.get_siguiente();
 			}while(nodo != null);
 		}else{
-			return console.log("Empty!");
+			return false;
 		}
-        return console.log("Data not found!");
+        return false;
 	}
 
 	update = (dato, cambio) =>{
