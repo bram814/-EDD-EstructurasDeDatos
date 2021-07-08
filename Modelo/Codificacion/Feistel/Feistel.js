@@ -177,7 +177,7 @@ class Feistel{
 		let i = 0;
 		let concatenar = ""
 		while(i<size){
-			let binario = cadena.charCodeAt(i)
+			let binario = cadena.charCodeAt(i) // Devuelve el numero ascii.
 			concatenar = concatenar + String(this.toBinario(binario))
 			i++;	
 		}
